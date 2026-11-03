@@ -1,6 +1,6 @@
 # Pseudo Localize UWP
 
-A UWP (C#) port of [**pseudolocalize**](https://github.com/gailium119/pseudolocalize
+A UWP (C#) port of [**pseudolocalize**](https://github.com/gailium119/pseudolocalize)
 
 The original is a Win32 command-line tool written in C++. This port keeps the same transformation rules and character tables, wraps them in a C# library.
 
