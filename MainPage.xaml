@@ -1,0 +1,182 @@
+﻿<Page
+    x:Class="PseudolocalizeUWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PseudolocalizeUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Loaded="Page_Loaded">
+    
+    <Grid x:Name="RootGrid">
+    <Grid x:Name="BackgroundContainer">
+        <Image x:Name="BgLayerA"
+               Source="ms-appx:///Assets/background/IMG0.png"
+               Stretch="UniformToFill"
+               IsHitTestVisible="False"/>
+            <Image x:Name="BgLayerB"
+               Stretch="UniformToFill"
+               Opacity="0"
+               IsHitTestVisible="False"/>
+        </Grid>
+        <ScrollViewer x:Name="ContentScroller"
+                      VerticalScrollMode="Enabled" 
+                      VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollMode="Enabled"
+                      HorizontalScrollBarVisibility="Auto"
+                      ZoomMode="Disabled">
+            <ScrollViewer.RenderTransform>
+                <CompositeTransform x:Name="ContentScale" ScaleX="0" CenterX="0"/>
+            </ScrollViewer.RenderTransform>
+            <ScrollViewer.Projection>
+                <PlaneProjection x:Name="ContentProjection"
+                         CenterOfRotationX="0"
+                         CenterOfRotationY="0.5"
+                         RotationY="-30"/>
+            </ScrollViewer.Projection>
+            <StackPanel  Padding="80,30,0,0">
+                <TextBlock Height="70" FontSize="50" x:Name="heading1" Text="Start" Tapped="heading1_Tapped" Width="auto" HorizontalAlignment="Left" />
+                <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
+                    <StackPanel Orientation="Vertical">
+                        <TextBox PlaceholderText="Type something here..." 
+                             FontSize="20"
+                             x:Name="input1" 
+                             Width="400" 
+                             Height="150" 
+                             HorizontalAlignment="Left"
+                             TextWrapping="Wrap"
+                             ScrollViewer.VerticalScrollMode="Auto"
+                             ScrollViewer.VerticalScrollBarVisibility="Auto"
+                             ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                             AcceptsReturn="True"/>
+                        <StackPanel Width="400" HorizontalAlignment="Left" Padding="0,10,0,0">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <Button Height="35"
+                                    Margin="10,0,10,0"
+                                    Width="80"
+                                    x:Name="btn4"
+                                    Click="btn4_Click">
+                                    <TextBlock Text="Paste" FontSize="15" Margin="0,0,0,0"/>
+                                </Button>
+                                <Button Height="35"
+                                    Width="80"
+                                    x:Name="btn2"
+                                    Click="btn2_Click">
+                                    <TextBlock Text="Clear" FontSize="15" Margin="0,0,0,0"/>
+                                </Button>
+                                <Button Margin="10,0,0,0"
+                                HorizontalAlignment="Right" 
+                                Height="35" 
+                                Width="80" 
+                                x:Name="btn1"
+                                Click="btn1_Click"
+                                TabIndex="0">
+                                    <TextBlock Text="Ľǿčǻŀížэ !" FontSize="15" Margin="0,0,0,0"/>
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Margin="0,10,0,0">
+                                <TextBox FontSize="20"
+                                     x:Name="output1" 
+                                     Width="400" 
+                                     Height="150" 
+                                     HorizontalAlignment="Left"
+                                     TextWrapping="Wrap"
+                                     ScrollViewer.VerticalScrollMode="Auto"
+                                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                     IsReadOnly="True"
+                                     PlaceholderText="Get ready&#10;Get set&#10;GO!"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+                                    <Button Height="35"
+                                    Margin="10,0,0,0"
+                                    Width="80"
+                                    x:Name="btn5"
+                                    Click="btn5_Click">
+                                        <TextBlock Text="Copy" FontSize="15" Margin="0,0,0,0"/>
+                                    </Button>
+                                    <Button Height="35"
+                                    Margin="10,0,0,0"
+                                    Width="80"
+                                    x:Name="btn3"
+                                    Click="btn3_Click">
+                                        <TextBlock Text="Save" FontSize="15" Margin="0,0,0,0"/>
+                                    </Button>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5,0,0">
+                                    <CheckBox x:Name="chkbox1" Checked="chkbox1_Checked" Unchecked="chkbox1_Unchecked">
+                                        <TextBlock Text="Remove '[ ]'"/>
+                                    </CheckBox>
+                                    <CheckBox x:Name="chkbox2" Checked="chkbox2_Checked" Unchecked="chkbox2_Unchecked">
+                                        <TextBlock Text="Remove random id"/>
+                                    </CheckBox>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Margin="80,0,0,0">
+                        <TextBox 
+                            Width="400"
+                            PlaceholderText="File Path..."
+                            Name="fileinput1"
+                            HorizontalAlignment="Right"
+                            IsReadOnly="True"
+                            ScrollViewer.HorizontalScrollMode="Enabled"
+                            ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+                            <Button 
+                            HorizontalAlignment="Right" 
+                            Margin="0,0,10,0"
+                            Height="35"
+                            Width="80"
+                            x:Name="filepicker1"
+                            Click="filepicker1_Click">
+                                <TextBlock Text="Browse"/>
+                            </Button>
+                            <Button Height="35"
+                                    Width="80"
+                                    x:Name="btn8"
+                                    Click="btn8_Click">
+                                <TextBlock Text="Clear" FontSize="15" Margin="0,0,0,0"/>
+                            </Button>
+                            <Button Margin="10,0,0,0"
+                                HorizontalAlignment="Right" 
+                                Height="35" 
+                                Width="80" 
+                                x:Name="btn6"
+                                Click="btn6_Click"
+                                TabIndex="0">
+                                <TextBlock Text="Ļŏ¢åĺîźє !" FontSize="15" Margin="0,0,0,0"/>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel>
+                            <TextBlock Text="*Supported file type: .txt .xml .inf .ini .mfl .psd1 .adml .resx"  FontSize="10" HorizontalAlignment="Right"/>
+                        </StackPanel>
+                        <TextBox FontSize="20"
+                                 x:Name="output2" 
+                                 Width="400" 
+                                 Height="150" 
+                                 TextWrapping="Wrap"
+                                 HorizontalAlignment="Right"
+                                 ScrollViewer.VerticalScrollMode="Auto"
+                                 ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                 ScrollViewer.HorizontalScrollMode="Auto"
+                                 ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                                 IsReadOnly="True"
+                                 Margin="0,115,0,0"
+                                 PlaceholderText="Almost there..."/>
+                        <Button Margin="10,10,0,0"
+                                HorizontalAlignment="Right" 
+                                Height="35" 
+                                Width="80" 
+                                x:Name="btn7"
+                                Click="btn7_Click"
+                                TabIndex="0"
+                                >
+                            <TextBlock Text="Save" FontSize="15" Margin="0,0,0,0"/>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
