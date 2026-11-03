@@ -26,8 +26,8 @@ Wrap every translatable string in obvious markers and replace letters with look-
 
 ```
 [abcde][Šаʋз ċћáñġзŝ вέƒбгē ¢ℓǿşιпģ? !!! !!!]
- └─┬─┘└──────────────────────────────┬──────┘└──┬──┘
-   ID                        converted text    padding
+ └─┬─┘└──────────────────────┬──────┘└──┬──┘
+   ID               converted text    padding
 ```
 
 ## Features
